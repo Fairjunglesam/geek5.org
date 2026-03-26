@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quittances — Geek5</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container { max-width: 640px; margin: 0 auto; }
+        nav { margin-bottom: 48px; }
+        nav a { color: #666; text-decoration: none; font-size: 14px; }
+        nav a:hover { color: #fff; }
+        .hero { text-align: center; margin-bottom: 48px; }
+        .app-icon-large {
+            width: 80px; height: 80px; border-radius: 20px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 40px; margin: 0 auto 20px;
+        }
+        h1 { font-size: 36px; font-weight: 700; letter-spacing: -1px; margin-bottom: 12px; }
+        .subtitle { font-size: 18px; color: #888; line-height: 1.5; }
+        .features {
+            display: grid; gap: 12px;
+            margin-bottom: 48px;
+        }
+        .feature {
+            display: flex; align-items: flex-start; gap: 12px;
+            padding: 16px 20px;
+            background: #111;
+            border: 1px solid #1a1a1a;
+            border-radius: 12px;
+        }
+        .feature-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+        .feature-text { font-size: 15px; color: #ccc; line-height: 1.4; }
+        .links {
+            display: flex; gap: 16px; justify-content: center;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid #1a1a1a;
+        }
+        .links a {
+            color: #666; text-decoration: none; font-size: 14px;
+            padding: 8px 16px;
+            border: 1px solid #222;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .links a:hover { color: #fff; border-color: #444; }
+        footer { text-align: center; margin-top: 48px; font-size: 13px; color: #444; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav><a href="/">← geek5</a></nav>
+
+        <div class="hero">
+            <div class="app-icon-large">🏠</div>
+            <h1>Quittances</h1>
+            <p class="subtitle">Générez vos quittances de loyer<br>en quelques taps. Simple, rapide, fiable.</p>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">📄</span>
+                <span class="feature-text">Quittances PDF professionnelles générées automatiquement</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">👥</span>
+                <span class="feature-text">Gérez vos locataires, propriétaires et montants d'APL</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">📊</span>
+                <span class="feature-text">Récapitulatif CSV automatique pour chaque mois</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">☁️</span>
+                <span class="feature-text">Sauvegarde iCloud — retrouvez vos fichiers sur tous vos appareils</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🖨️</span>
+                <span class="feature-text">Imprimez directement depuis l'app</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔄</span>
+                <span class="feature-text">Dupliquez un mois pour gagner du temps</span>
+            </div>
+        </div>
+
+        <div class="links">
+            <a href="/quittances/privacy">Confidentialité</a>
+            <a href="/quittances/support">Support</a>
+        </div>
+
+        <footer>&copy; 2026 Geek5 &middot; Samir Idris</footer>
+    </div>
+</body>
+</html>

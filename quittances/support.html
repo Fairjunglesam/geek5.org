@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — Quittances</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+            background: #000;
+            color: #ccc;
+            min-height: 100vh;
+            padding: 40px 20px;
+            line-height: 1.7;
+        }
+        .container { max-width: 640px; margin: 0 auto; }
+        nav { margin-bottom: 48px; }
+        nav a { color: #666; text-decoration: none; font-size: 14px; }
+        nav a:hover { color: #fff; }
+        h1 { color: #fff; font-size: 28px; font-weight: 700; margin-bottom: 32px; }
+        h2 { color: #fff; font-size: 18px; font-weight: 600; margin: 32px 0 12px; }
+        p { margin-bottom: 16px; font-size: 15px; }
+        .contact-card {
+            display: flex; align-items: center; gap: 16px;
+            padding: 20px 24px;
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 16px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.2s;
+            margin-top: 24px;
+        }
+        .contact-card:hover { background: #1a1a1a; border-color: #333; }
+        .contact-icon { font-size: 28px; }
+        .contact-info { }
+        .contact-label { font-size: 15px; font-weight: 600; }
+        .contact-detail { font-size: 14px; color: #888; margin-top: 2px; }
+        .faq-item { margin-bottom: 24px; }
+        .faq-q { color: #fff; font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+        .faq-a { font-size: 14px; color: #999; }
+        footer { text-align: center; margin-top: 64px; font-size: 13px; color: #444; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav><a href="/quittances">← Quittances</a></nav>
+
+        <h1>Support</h1>
+
+        <h2>Questions fréquentes</h2>
+
+        <div class="faq-item">
+            <p class="faq-q">Où sont stockées mes quittances ?</p>
+            <p class="faq-a">Les PDF et récapitulatifs CSV sont sauvegardés dans Fichiers > QuittanceGenerator sur votre iPhone, et synchronisés automatiquement via iCloud Drive sur tous vos appareils.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">Comment retrouver mes fichiers sur mon ordinateur ?</p>
+            <p class="faq-a">Sur Mac : ouvrez le Finder > iCloud Drive > QuittanceGenerator. Sur PC Windows : installez iCloud pour Windows depuis le Microsoft Store, puis accédez au dossier iCloud Drive.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">Mes données sont-elles en sécurité ?</p>
+            <p class="faq-a">Oui. Toutes vos données sont stockées localement et dans votre espace iCloud personnel. Aucune donnée n'est transmise à des tiers.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">Comment modifier l'APL d'un locataire ?</p>
+            <p class="faq-a">Dans la vue de génération, appuyez sur le champ APL à côté du nom du locataire. Un écran s'ouvre pour saisir le montant.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">Comment dupliquer un mois précédent ?</p>
+            <p class="faq-a">Dans l'accueil, appuyez sur un mois dans "Dernières générations", puis choisissez "Dupliquer pour un autre mois".</p>
+        </div>
+
+        <h2>Contact</h2>
+
+        <a href="mailto:samir@geek5.org" class="contact-card">
+            <span class="contact-icon">✉️</span>
+            <div class="contact-info">
+                <div class="contact-label">Nous écrire</div>
+                <div class="contact-detail">samir@geek5.org</div>
+            </div>
+        </a>
+
+        <footer>&copy; 2026 Geek5 &middot; Samir Idris</footer>
+    </div>
+</body>
+</html>
