@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0B0D12">
+<meta name="description" content="NO SERVICE — des jeux d'ambiance 100 % hors ligne, par Geek5. Tout marche sans réseau : un téléphone suffit.">
+<meta property="og:title" content="NO SERVICE — jeux d'ambiance sans réseau">
+<meta property="og:description" content="Des jeux d'ambiance. Même en mode avion. Tout marche sans réseau — un téléphone suffit.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://geek5.org/app/">
+<title>NO SERVICE — jeux d'ambiance sans réseau</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0B0D12;
+    --ink: #EDEBE6;
+    --muted: #99A1B3;
+    --hair: rgba(237, 235, 230, .13);
+    --panel: rgba(255, 255, 255, .04);
+    --violet: #8C6BFF;
+    --cyan: #34E7E4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { height: 100%; }
+
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    color: var(--ink);
+    background:
+      radial-gradient(56% 44% at 12% -4%, rgba(140, 107, 255, .17), transparent 62%),
+      radial-gradient(52% 40% at 94% 104%, rgba(52, 231, 228, .11), transparent 60%),
+      var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+
+  /* Grain discret, pour la matière */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 56px 28px 40px;
+    max-width: 640px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .plane {
+    font-size: 22px;
+    margin-bottom: 20px;
+    filter: saturate(.75);
+    animation: float 5s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+  }
+
+  .wordmark {
+    font-family: "Space Grotesk", -apple-system, sans-serif;
+    font-weight: 700;
+    font-size: clamp(48px, 17vw, 116px);
+    line-height: .94;
+    letter-spacing: -.035em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  /* Sheen iridescent — le geste spectaculaire de la page */
+  @supports (-webkit-background-clip: text) {
+    .wordmark {
+      background: linear-gradient(
+        108deg,
+        var(--ink) 0%, var(--ink) 34%,
+        var(--violet) 46%, var(--cyan) 54%,
+        var(--ink) 66%, var(--ink) 100%
+      );
+      background-size: 300% 100%;
+      background-position: 100% 0;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: sheen 8s ease-in-out infinite;
+    }
+  }
+
+  @keyframes sheen {
+    0%, 55%  { background-position: 100% 0; }
+    85%, 100% { background-position: 0% 0; }
+  }
+
+  .tagline {
+    font-family: "Space Grotesk", -apple-system, sans-serif;
+    font-weight: 500;
+    font-size: clamp(19px, 5vw, 24px);
+    letter-spacing: -.01em;
+    margin-top: 26px;
+    color: var(--ink);
+  }
+
+  .pitch {
+    font-size: 16px;
+    color: var(--muted);
+    margin-top: 14px;
+    max-width: 42ch;
+  }
+
+  .stores {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 340px;
+    margin-top: 40px;
+  }
+
+  .store {
+    display: block;
+    padding: 15px 24px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .01em;
+    text-decoration: none;
+    text-align: center;
+    background: var(--panel);
+    border: 1px solid var(--hair);
+    color: var(--muted);
+    cursor: default;
+    user-select: none;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+
+  /* Bouton actif (quand l'URL du store est renseignée dans le script) */
+  .store.active {
+    color: var(--ink);
+    cursor: pointer;
+    background:
+      linear-gradient(#141826, #141826) padding-box,
+      linear-gradient(120deg, var(--violet), var(--cyan)) border-box;
+    border: 1px solid transparent;
+    box-shadow: 0 0 24px rgba(140, 107, 255, .12);
+  }
+
+  .store.active:hover,
+  .store.active:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 32px rgba(140, 107, 255, .22);
+    outline: none;
+  }
+
+  footer {
+    text-align: center;
+    padding: 24px 28px 34px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hair);
+    transition: color .15s ease;
+  }
+
+  footer a:hover { color: var(--ink); }
+
+  /* Entrée en cascade */
+  .plane, .wordmark, .tagline, .pitch, .stores { opacity: 0; }
+  .plane    { animation: rise .7s cubic-bezier(.2,.7,.2,1) .05s forwards, float 5s ease-in-out .8s infinite; }
+  .wordmark { animation: rise .7s cubic-bezier(.2,.7,.2,1) .12s forwards, sheen 8s ease-in-out 1s infinite; }
+  .tagline  { animation: rise .7s cubic-bezier(.2,.7,.2,1) .24s forwards; }
+  .pitch    { animation: rise .7s cubic-bezier(.2,.7,.2,1) .34s forwards; }
+  .stores   { animation: rise .7s cubic-bezier(.2,.7,.2,1) .46s forwards; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .plane, .wordmark, .tagline, .pitch, .stores {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+    .store.active:hover { transform: none; }
+    @supports (-webkit-background-clip: text) {
+      .wordmark { background-position: 50% 0; }
+    }
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <div class="plane" aria-hidden="true">✈️</div>
+  <h1 class="wordmark">No<br>Service</h1>
+  <p class="tagline">Des jeux d'ambiance.<br>Même en mode avion.</p>
+  <p class="pitch">Tout marche sans réseau. Un téléphone suffit — et c'est encore meilleur quand chacun a le sien.</p>
+
+  <div class="stores">
+    <a id="store-ios" class="store" aria-disabled="true">Bientôt sur l'App Store</a>
+    <a id="store-android" class="store" aria-disabled="true">Bientôt sur Google Play</a>
+  </div>
+</main>
+
+<footer>
+  <a href="mailto:contact@geek5.org">Geek5 — contact@geek5.org</a>
+  &nbsp;·&nbsp;
+  <a href="/">geek5.org</a>
+</footer>
+
+<script>
+  // ─────────────────────────────────────────────────────────────
+  //  À REMPLIR À LA PUBLICATION DES STORES.
+  //  Renseigner l'URL complète de la fiche pour activer le bouton
+  //  correspondant ET la redirection automatique (un iPhone qui
+  //  scanne le QR file droit sur l'App Store, un Android sur Play).
+  //  Exemples :
+  //    const APPSTORE_URL = "https://apps.apple.com/fr/app/no-service/id0000000000";
+  //    const PLAY_URL     = "https://play.google.com/store/apps/details?id=org.geek5.noservice";
+  // ─────────────────────────────────────────────────────────────
+  const APPSTORE_URL = null;
+  const PLAY_URL = null;
+
+  const ua = navigator.userAgent || "";
+  // iPadOS récent se présente comme un Mac : on regarde aussi le tactile.
+  const isIOS = /iPad|iPhone|iPod/.test(ua) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const isAndroid = /Android/i.test(ua);
+
+  // Redirection immédiate quand la fiche du store existe.
+  if (isIOS && APPSTORE_URL) {
+    location.replace(APPSTORE_URL);
+  } else if (isAndroid && PLAY_URL) {
+    location.replace(PLAY_URL);
+  }
+
+  // Activation des boutons quand les URLs sont renseignées.
+  function activate(id, url, label) {
+    if (!url) return;
+    const el = document.getElementById(id);
+    el.href = url;
+    el.textContent = label;
+    el.classList.add("active");
+    el.removeAttribute("aria-disabled");
+  }
+
+  activate("store-ios", APPSTORE_URL, "Télécharger sur l'App Store");
+  activate("store-android", PLAY_URL, "Télécharger sur Google Play");
+</script>
+
+</body>
+</html>
